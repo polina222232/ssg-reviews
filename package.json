@@ -1,0 +1,17 @@
+{
+  "name": "ssg-review",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@squoosh/cli": "^0.7.1",
+    "sharp": "^0.35.5"
+  }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кейсы использования SSG | SSG Review</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/light.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace-autoloader.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/shoelace-override.css">
+</head>
+<body class="page">
+
+<header class="header" data-js="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">
+      <sl-icon name="layers" class="header__logo-icon"></sl-icon>
+      <span class="header__logo-text">SSG Review</span>
+    </a>
+    <nav class="header__nav" aria-label="Основная навигация">
+      <ul class="header__list">
+        <li class="header__item"><a href="index.html" class="header__link">Главная</a></li>
+        <li class="header__item"><a href="gatsby.html" class="header__link">Gatsby</a></li>
+        <li class="header__item"><a href="hugo.html" class="header__link">Hugo</a></li>
+        <li class="header__item"><a href="jekyll.html" class="header__link">Jekyll</a></li>
+        <li class="header__item"><a href="comparison.html" class="header__link">Сравнение</a></li>
+        <li class="header__item"><a href="code.html" class="header__link">Код</a></li>
+        <li class="header__item"><a href="usage.html" class="header__link">Кейсы</a></li>
+        <li class="header__item"><a href="video.html" class="header__link">Видео</a></li>
+        <li class="header__item"><a href="faq.html" class="header__link">FAQ</a></li>
+        <li class="header__item"><a href="contacts.html" class="header__link">Контакты</a></li>
+      </ul>
+    </nav>
+    <sl-icon-button name="list" label="Открыть меню" class="header__burger" data-js="burger"></sl-icon-button>
+  </div>
+</header>
+
+<sl-drawer label="Меню" placement="end" class="drawer" data-js="drawer">
+  <nav class="drawer__nav">
+    <ul class="drawer__list">
+      <li class="drawer__item"><a href="index.html" class="drawer__link">Главная</a></li>
+      <li class="drawer__item"><a href="gatsby.html" class="drawer__link">Gatsby</a></li>
+      <li class="drawer__item"><a href="hugo.html" class="drawer__link">Hugo</a></li>
+      <li class="drawer__item"><a href="jekyll.html" class="drawer__link">Jekyll</a></li>
+      <li class="drawer__item"><a href="comparison.html" class="drawer__link">Сравнение</a></li>
+      <li class="drawer__item"><a href="code.html" class="drawer__link">Код</a></li>
+      <li class="drawer__item"><a href="usage.html" class="drawer__link">Кейсы</a></li>
+      <li class="drawer__item"><a href="video.html" class="drawer__link">Видео</a></li>
+      <li class="drawer__item"><a href="faq.html" class="drawer__link">FAQ</a></li>
+      <li class="drawer__item"><a href="contacts.html" class="drawer__link">Контакты</a></li>
+    </ul>
+  </nav>
+  <div slot="footer" class="drawer__footer"><small>© 2025 Буренкова П. А.</small></div>
+</sl-drawer>
+
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <sl-breadcrumb>
+    <sl-breadcrumb-item href="index.html">
+      <sl-icon slot="prefix" name="house"></sl-icon>
+      Главная
+    </sl-breadcrumb-item>
+    <sl-breadcrumb-item>Кейсы</sl-breadcrumb-item>
+  </sl-breadcrumb>
+</nav>
+
+<div class="layout">
+  <main class="layout__main">
+
+    <section class="section">
+      <h1 class="section__title">Примеры использования</h1>
+      <p class="section__subtitle">Реальные кейсы SSG в продакшене.</p>
+
+      <div class="grid grid_cols_2">
+        <sl-card class="card">
+          <div slot="header" class="card__header">
+            <sl-icon name="book" class="card__icon"></sl-icon>
+            <h3 class="card__title">Документация</h3>
+          </div>
+          <p>Hugo отлично подходит для документации: тысячи страниц собираются за секунды.</p>
+          <sl-rating label="Оценка Hugo" value="5" readonly></sl-rating>
+        </sl-card>
+
+        <sl-card class="card">
+          <div slot="header" class="card__header">
+            <sl-icon name="bag" class="card__icon"></sl-icon>
+            <h3 class="card__title">E-commerce</h3>
+          </div>
+          <p>Gatsby + Shopify — быстрый магазин без серверной нагрузки.</p>
+          <sl-rating label="Оценка Gatsby" value="4" readonly></sl-rating>
+        </sl-card>
+
+        <sl-card class="card">
+          <div slot="header" class="card__header">
+            <sl-icon name="pencil" class="card__icon"></sl-icon>
+            <h3 class="card__title">Блоги</h3>
+          </div>
+          <p>Jekyll + GitHub Pages — классика для личных блогов и портфолио.</p>
+          <sl-rating label="Оценка Jekyll" value="4" readonly></sl-rating>
+        </sl-card>
+
+        <sl-card class="card">
+          <div slot="header" class="card__header">
+            <sl-icon name="building" class="card__icon"></sl-icon>
+            <h3 class="card__title">Корпоративные сайты</h3>
+          </div>
+          <p>Gatsby с Contentful — контент-редактор для маркетинга и быстрый фронтенд.</p>
+          <sl-rating label="Оценка Gatsby для корпоративных" value="5" readonly></sl-rating>
+        </sl-card>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Известные проекты</h2>
+      <ul class="list list_marker_check">
+        <li class="list__item"><strong>Smashing Magazine</strong> — переведён на Gatsby</li>
+        <li class="list__item"><strong>Kubernetes Docs</strong> — используют Hugo</li>
+        <li class="list__item"><strong>GitHub Pages</strong> — по умолчанию Jekyll</li>
+        <li class="list__item"><strong>1Password Support</strong> — Hugo</li>
+      </ul>
+    </section>
+
+    <nav class="pagination">
+      <a href="code.html" class="button-link">
+        <sl-button variant="default">
+          <sl-icon slot="prefix" name="arrow-left"></sl-icon>Назад: Код
+        </sl-button>
+      </a>
+      <a href="video.html" class="button-link">
+        <sl-button variant="primary">
+          Далее: Видео<sl-icon slot="suffix" name="arrow-right"></sl-icon>
+        </sl-button>
+      </a>
+    </nav>
+
+  </main>
+
+  <aside class="layout__aside">
+    <sl-card class="aside__card">
+      <h3 slot="header" class="aside__title">Кому подходит?</h3>
+      <ul class="aside__list">
+        <li class="aside__item">Блогерам</li>
+        <li class="aside__item">Разработчикам</li>
+        <li class="aside__item">Компаниям</li>
+        <li class="aside__item">Студентам</li>
+      </ul>
+    </sl-card>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copyright">© 2025 Буренкова Полина Алексеевна. Учебный проект.</p>
+    <ul class="footer__links">
+      <li class="footer__item"><a href="about.html" class="footer__link">О проекте</a></li>
+      <li class="footer__item"><a href="contacts.html" class="footer__link">Контакты</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js" type="module"></script>
+</body>
+</html>

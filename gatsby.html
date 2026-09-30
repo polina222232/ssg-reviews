@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gatsby — обзор и примеры кода | SSG Review</title>
+  <meta name="description" content="Gatsby — React-based SSG: установка, конфигурация, GraphQL, примеры кода">
+  <link rel="icon" type="image/webp" href="img/gatsby-400.webp">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/light.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace-autoloader.js"></script>
+
+  <link rel="stylesheet" href="css/prism.css">
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-jsx.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup-templating.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markdown.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-liquid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-toml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-graphql.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shoelace-override.css">
+</head>
+<body class="page">
+
+<header class="header" data-js="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">
+      <sl-icon name="layers" class="header__logo-icon"></sl-icon>
+      <span class="header__logo-text">SSG Review</span>
+    </a>
+    <nav class="header__nav" aria-label="Основная навигация">
+      <ul class="header__list">
+        <li class="header__item"><a href="index.html" class="header__link">Главная</a></li>
+        <li class="header__item"><a href="gatsby.html" class="header__link">Gatsby</a></li>
+        <li class="header__item"><a href="hugo.html" class="header__link">Hugo</a></li>
+        <li class="header__item"><a href="jekyll.html" class="header__link">Jekyll</a></li>
+        <li class="header__item"><a href="comparison.html" class="header__link">Сравнение</a></li>
+        <li class="header__item"><a href="code.html" class="header__link">Код</a></li>
+        <li class="header__item"><a href="usage.html" class="header__link">Кейсы</a></li>
+        <li class="header__item"><a href="video.html" class="header__link">Видео</a></li>
+        <li class="header__item"><a href="faq.html" class="header__link">FAQ</a></li>
+        <li class="header__item"><a href="contacts.html" class="header__link">Контакты</a></li>
+      </ul>
+    </nav>
+    <sl-icon-button name="list" label="Открыть меню" class="header__burger" data-js="burger"></sl-icon-button>
+  </div>
+</header>
+
+<sl-drawer label="Меню" placement="end" class="drawer" data-js="drawer">
+  <nav class="drawer__nav">
+    <ul class="drawer__list">
+      <li class="drawer__item"><a href="index.html" class="drawer__link">Главная</a></li>
+      <li class="drawer__item"><a href="gatsby.html" class="drawer__link">Gatsby</a></li>
+      <li class="drawer__item"><a href="hugo.html" class="drawer__link">Hugo</a></li>
+      <li class="drawer__item"><a href="jekyll.html" class="drawer__link">Jekyll</a></li>
+      <li class="drawer__item"><a href="comparison.html" class="drawer__link">Сравнение</a></li>
+      <li class="drawer__item"><a href="code.html" class="drawer__link">Код</a></li>
+      <li class="drawer__item"><a href="usage.html" class="drawer__link">Кейсы</a></li>
+      <li class="drawer__item"><a href="video.html" class="drawer__link">Видео</a></li>
+      <li class="drawer__item"><a href="faq.html" class="drawer__link">FAQ</a></li>
+      <li class="drawer__item"><a href="contacts.html" class="drawer__link">Контакты</a></li>
+    </ul>
+  </nav>
+  <div slot="footer" class="drawer__footer"><small>© 2025 Буренкова П. А.</small></div>
+</sl-drawer>
+
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <sl-breadcrumb>
+    <sl-breadcrumb-item href="index.html">
+      <sl-icon slot="prefix" name="house"></sl-icon>
+      Главная
+    </sl-breadcrumb-item>
+    <sl-breadcrumb-item>Gatsby</sl-breadcrumb-item>
+  </sl-breadcrumb>
+</nav>
+
+<div class="layout">
+  <main class="layout__main">
+
+    <section class="section">
+      <div class="section__hero">
+        <img
+          src="img/gatsby-800.webp"
+          srcset="img/gatsby-400.webp 400w,
+                  img/gatsby-800.webp 800w,
+                  img/gatsby-1200.webp 1200w"
+          sizes="(max-width: 768px) 30vw, 120px"
+          alt="Логотип Gatsby — фиолетовый круг с буквой G"
+          title="Gatsby — React-based SSG"
+          class="section__hero-logo"
+          width="120" height="120"
+          loading="lazy">
+        <div class="section__hero-text">
+          <h1 class="section__title">Gatsby</h1>
+          <p class="section__subtitle">React-based генератор статических сайтов с GraphQL-слоем данных.</p>
+        </div>
+      </div>
+      <sl-card class="card">
+        <p>
+          Gatsby использует React для шаблонов и GraphQL для получения данных
+          из Markdown, CMS, API. Идеален для блогов, документации, лендингов
+          и e-commerce на Shopify.
+        </p>
+      </sl-card>
+
+      <div class="tags">
+        <sl-tag variant="primary" size="small">React</sl-tag>
+        <sl-tag variant="success" size="small">GraphQL</sl-tag>
+        <sl-tag variant="neutral" size="small">SSG</sl-tag>
+        <sl-tag variant="warning" size="small">Node.js</sl-tag>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2 class="section__title">Ключевые особенности</h2>
+      <ul class="list list_marker_check">
+        <li class="list__item">React + JSX для компонентов</li>
+        <li class="list__item">GraphQL как единый слой данных</li>
+        <li class="list__item">Огромная экосистема плагинов</li>
+        <li class="list__item">Оптимизация изображений «из коробки»</li>
+        <li class="list__item">Интеграция с Netlify, Vercel, Gatsby Cloud</li>
+      </ul>
+    </section>
+
+    <section class="section" id="install">
+      <h2 class="section__title">Установка</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">bash</span>
+          <sl-button size="small" data-js="copy">Копировать</sl-button>
+        </div>
+        <pre class="code-block__body"><code class="language-bash"># Установка CLI
+npm install -g gatsby-cli
+
+# Создание проекта
+gatsby new my-site https://github.com/gatsbyjs/gatsby-starter-default
+
+# Запуск dev-сервера
+cd my-site
+gatsby develop
+# http://localhost:8000
+
+# Сборка продакшена
+gatsby build
+gatsby serve</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="config">
+      <h2 class="section__title">Конфигурация gatsby-config.js</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">javascript</span>
+          <sl-button size="small" data-js="copy">Копировать</sl-button>
+        </div>
+        <pre class="code-block__body"><code class="language-javascript">module.exports = {
+  siteMetadata: {
+    title: 'SSG Review',
+    siteUrl: 'https://example.com'
+  },
+  plugins: [
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: `${__dirname}/src/posts`
+      }
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: ['gatsby-remark-prismjs']
+      }
+    }
+  ]
+};</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="component">
+      <h2 class="section__title">React-компонент страницы</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">jsx</span>
+          <sl-button size="small" data-js="copy">Копировать</sl-button>
+        </div>
+        <pre class="code-block__body"><code class="language-jsx">import React from 'react';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/layout';
+
+export default function Blog({ data }) {
+  const posts = data.allMarkdownRemark.nodes;
+
+  return (
+    &lt;Layout&gt;
+      &lt;h1&gt;Блог&lt;/h1&gt;
+      &lt;ul&gt;
+        {posts.map(post =&gt; (
+          &lt;li key={post.id}&gt;
+            &lt;Link to={post.fields.slug}&gt;
+              &lt;h2&gt;{post.frontmatter.title}&lt;/h2&gt;
+            &lt;/Link&gt;
+            &lt;p&gt;{post.excerpt}&lt;/p&gt;
+          &lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+    &lt;/Layout&gt;
+  );
+}
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+      nodes {
+        id
+        excerpt
+        fields { slug }
+        frontmatter { title, date }
+      }
+    }
+  }
+`;</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="graphql">
+      <h2 class="section__title">GraphQL-запрос</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">graphql</span>
+          <sl-button size="small" data-js="copy">Копировать</sl-button>
+        </div>
+        <pre class="code-block__body"><code class="language-graphql">query BlogPostBySlug($slug: String!) {
+  markdownRemark(fields: { slug: { eq: $slug } }) {
+    html
+    frontmatter {
+      title
+      date(formatString: "DD.MM.YYYY")
+      author
+      cover {
+        childImageSharp {
+          gatsbyImageData(width: 1200, placeholder: BLURRED)
+        }
+      }
+    }
+  }
+}</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="deploy">
+      <h2 class="section__title">Деплой на GitHub Pages</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">yaml</span>
+          <sl-button size="small" data-js="copy">Копировать</sl-button>
+        </div>
+        <pre class="code-block__body"><code class="language-yaml"># .github/workflows/gatsby.yml
+name: Deploy Gatsby to Pages
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4</code></pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Плюсы и минусы</h2>
+      <div class="grid grid_cols_2">
+        <sl-card class="card">
+          <div slot="header" class="card__header">
+            <sl-icon name="hand-thumbs-up" class="card__icon"></sl-icon>
+            <h3 class="card__title">Плюсы</h3>
+          </div>
+          <ul class="list list_marker_check">
+            <li class="list__item">React-экосистема</li>
+            <li class="list__item">Мощный GraphQL</li>
+            <li class="list__item">Много плагинов</li>
+            <li class="list__item">Отличная документация</li>
+          </ul>
+        </sl-card>
+        <sl-card class="card">
+          <div slot="header" class="card__header">
+            <sl-icon name="hand-thumbs-down" class="card__icon"></sl-icon>
+            <h3 class="card__title">Минусы</h3>
+          </div>
+          <ul class="list list_marker_check">
+            <li class="list__item">Медленная сборка больших сайтов</li>
+            <li class="list__item">Требует Node.js</li>
+            <li class="list__item">Высокий порог входа</li>
+          </ul>
+        </sl-card>
+      </div>
+    </section>
+
+    <section class="section">
+      <sl-alert variant="warning" open class="alert alert_warning">
+        <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+        Первый запуск Gatsby может занять несколько минут — устанавливаются зависимости.
+      </sl-alert>
+    </section>
+
+    <nav class="pagination" aria-label="Навигация по страницам">
+      <a href="index.html" class="button-link">
+        <sl-button variant="default">
+          <sl-icon slot="prefix" name="arrow-left"></sl-icon>Назад
+        </sl-button>
+      </a>
+      <a href="hugo.html" class="button-link">
+        <sl-button variant="primary">
+          Далее: Hugo<sl-icon slot="suffix" name="arrow-right"></sl-icon>
+        </sl-button>
+      </a>
+    </nav>
+
+  </main>
+
+  <aside class="layout__aside">
+    <sl-card class="aside__card">
+      <h3 slot="header" class="aside__title">Содержание</h3>
+      <ul class="aside__list">
+        <li class="aside__item"><a href="#features" class="aside__link">Особенности</a></li>
+        <li class="aside__item"><a href="#install" class="aside__link">Установка</a></li>
+        <li class="aside__item"><a href="#config" class="aside__link">Конфигурация</a></li>
+        <li class="aside__item"><a href="#component" class="aside__link">Компонент</a></li>
+        <li class="aside__item"><a href="#graphql" class="aside__link">GraphQL</a></li>
+        <li class="aside__item"><a href="#deploy" class="aside__link">Деплой</a></li>
+      </ul>
+    </sl-card>
+    <sl-card class="aside__card">
+      <h3 slot="header" class="aside__title">Официальный сайт</h3>
+      <a href="https://www.gatsbyjs.com/" target="_blank" rel="noopener" class="button-link">
+        <sl-button variant="primary" class="button button_block">
+          gatsbyjs.com
+        </sl-button>
+      </a>
+    </sl-card>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copyright">© 2025 Буренкова Полина Алексеевна. Учебный проект.</p>
+    <ul class="footer__links">
+      <li class="footer__item"><a href="about.html" class="footer__link">О проекте</a></li>
+      <li class="footer__item"><a href="contacts.html" class="footer__link">Контакты</a></li>
+      <li class="footer__item"><a href="https://github.com/polina222232/ssg-review" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js" type="module"></script>
+</body>
+</html>

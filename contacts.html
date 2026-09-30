@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ | SSG Review</title>
+  <meta name="description" content="Ответы на популярные вопросы про SSG">
+  <link rel="icon" type="image/webp" href="img/gatsby-400.webp">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/light.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace-autoloader.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shoelace-override.css">
+</head>
+<body class="page">
+
+<header class="header" data-js="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">
+      <sl-icon name="layers" class="header__logo-icon"></sl-icon>
+      <span class="header__logo-text">SSG Review</span>
+    </a>
+    <nav class="header__nav" aria-label="Основная навигация">
+      <ul class="header__list">
+        <li class="header__item"><a href="index.html" class="header__link">Главная</a></li>
+        <li class="header__item"><a href="gatsby.html" class="header__link">Gatsby</a></li>
+        <li class="header__item"><a href="hugo.html" class="header__link">Hugo</a></li>
+        <li class="header__item"><a href="jekyll.html" class="header__link">Jekyll</a></li>
+        <li class="header__item"><a href="comparison.html" class="header__link">Сравнение</a></li>
+        <li class="header__item"><a href="code.html" class="header__link">Код</a></li>
+        <li class="header__item"><a href="usage.html" class="header__link">Кейсы</a></li>
+        <li class="header__item"><a href="video.html" class="header__link">Видео</a></li>
+        <li class="header__item"><a href="faq.html" class="header__link">FAQ</a></li>
+        <li class="header__item"><a href="contacts.html" class="header__link">Контакты</a></li>
+      </ul>
+    </nav>
+    <sl-icon-button name="list" label="Открыть меню" class="header__burger" data-js="burger"></sl-icon-button>
+  </div>
+</header>
+
+<sl-drawer label="Меню" placement="end" class="drawer" data-js="drawer">
+  <nav class="drawer__nav">
+    <ul class="drawer__list">
+      <li class="drawer__item"><a href="index.html" class="drawer__link">Главная</a></li>
+      <li class="drawer__item"><a href="gatsby.html" class="drawer__link">Gatsby</a></li>
+      <li class="drawer__item"><a href="hugo.html" class="drawer__link">Hugo</a></li>
+      <li class="drawer__item"><a href="jekyll.html" class="drawer__link">Jekyll</a></li>
+      <li class="drawer__item"><a href="comparison.html" class="drawer__link">Сравнение</a></li>
+      <li class="drawer__item"><a href="code.html" class="drawer__link">Код</a></li>
+      <li class="drawer__item"><a href="usage.html" class="drawer__link">Кейсы</a></li>
+      <li class="drawer__item"><a href="video.html" class="drawer__link">Видео</a></li>
+      <li class="drawer__item"><a href="faq.html" class="drawer__link">FAQ</a></li>
+      <li class="drawer__item"><a href="contacts.html" class="drawer__link">Контакты</a></li>
+    </ul>
+  </nav>
+  <div slot="footer" class="drawer__footer"><small>© 2025 Буренкова П. А.</small></div>
+</sl-drawer>
+
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <sl-breadcrumb>
+    <sl-breadcrumb-item href="index.html">
+      <sl-icon slot="prefix" name="house"></sl-icon>
+      Главная
+    </sl-breadcrumb-item>
+    <sl-breadcrumb-item>FAQ</sl-breadcrumb-item>
+  </sl-breadcrumb>
+</nav>
+
+<div class="layout">
+  <main class="layout__main">
+
+    <section class="section">
+      <h1 class="section__title">Часто задаваемые вопросы</h1>
+      <p class="section__subtitle">Ответы на популярные вопросы про SSG.</p>
+
+      <sl-details summary="Что такое SSG?" open>
+        <p>Static Site Generator — инструмент, генерирующий HTML-страницы на этапе сборки из шаблонов и контента (Markdown, JSON, CMS).</p>
+      </sl-details>
+
+      <sl-details summary="Чем Hugo быстрее Jekyll?">
+        <p>Hugo написан на Go и компилируется в один бинарник. Jekyll — на Ruby, работает медленнее, особенно на больших проектах.</p>
+      </sl-details>
+
+      <sl-details summary="Можно ли использовать Gatsby с CMS?">
+        <p>Да, Gatsby отлично интегрируется с Contentful, Strapi, Sanity, WordPress через GraphQL-плагины.</p>
+      </sl-details>
+
+      <sl-details summary="Где хостить статический сайт?">
+        <p>GitHub Pages, Netlify, Vercel, Cloudflare Pages — все бесплатны для личных проектов.</p>
+      </sl-details>
+
+      <sl-details summary="Нужен ли сервер для SSG?">
+        <p>Нет. Собранный сайт — это набор HTML/CSS/JS-файлов, которые можно раздавать с любого CDN или статического хостинга.</p>
+      </sl-details>
+
+      <sl-details summary="Какой SSG выбрать новичку?">
+        <p>Если вы знакомы с JS/React — Gatsby. Если хотите максимальную скорость и простоту — Hugo. Если нужен GitHub Pages «из коробки» — Jekyll.</p>
+      </sl-details>
+
+      <sl-details summary="Что такое Front Matter?">
+        <p>Это YAML/TOML/JSON-блок в начале Markdown-файла с метаданными: заголовок, дата, теги, автор и т. д.</p>
+      </sl-details>
+    </section>
+
+    <nav class="pagination">
+      <a href="video.html" class="button-link">
+        <sl-button variant="default">
+          <sl-icon slot="prefix" name="arrow-left"></sl-icon>Назад: Видео
+        </sl-button>
+      </a>
+      <a href="contacts.html" class="button-link">
+        <sl-button variant="primary">
+          Далее: Контакты<sl-icon slot="suffix" name="arrow-right"></sl-icon>
+        </sl-button>
+      </a>
+    </nav>
+
+  </main>
+
+  <aside class="layout__aside">
+    <sl-card class="aside__card">
+      <h3 slot="header" class="aside__title">Не нашли ответ?</h3>
+      <p>Напишите нам через форму обратной связи.</p>
+      <a href="contacts.html" class="button-link">
+        <sl-button variant="primary" class="button button_block">Связаться</sl-button>
+      </a>
+    </sl-card>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copyright">© 2025 Буренкова Полина Алексеевна. Учебный проект.</p>
+    <ul class="footer__links">
+      <li class="footer__item"><a href="about.html" class="footer__link">О проекте</a></li>
+      <li class="footer__item"><a href="contacts.html" class="footer__link">Контакты</a></li>
+      <li class="footer__item"><a href="https://github.com/polina222232/ssg-review" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hugo — обзор и примеры кода | SSG Review</title>
+  <meta name="description" content="Hugo — самый быстрый SSG на Go: установка, конфигурация, шаблоны, примеры кода">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/light.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace-autoloader.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/shoelace-override.css">
+</head>
+<body class="page">
+
+<header class="header" data-js="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">
+      <sl-icon name="layers" class="header__logo-icon"></sl-icon>
+      <span class="header__logo-text">SSG Review</span>
+    </a>
+    <nav class="header__nav" aria-label="Основная навигация">
+      <ul class="header__list">
+        <li class="header__item"><a href="index.html" class="header__link">Главная</a></li>
+        <li class="header__item"><a href="gatsby.html" class="header__link">Gatsby</a></li>
+        <li class="header__item"><a href="hugo.html" class="header__link">Hugo</a></li>
+        <li class="header__item"><a href="jekyll.html" class="header__link">Jekyll</a></li>
+        <li class="header__item"><a href="comparison.html" class="header__link">Сравнение</a></li>
+        <li class="header__item"><a href="code.html" class="header__link">Код</a></li>
+        <li class="header__item"><a href="usage.html" class="header__link">Кейсы</a></li>
+        <li class="header__item"><a href="video.html" class="header__link">Видео</a></li>
+        <li class="header__item"><a href="faq.html" class="header__link">FAQ</a></li>
+        <li class="header__item"><a href="contacts.html" class="header__link">Контакты</a></li>
+      </ul>
+    </nav>
+    <sl-icon-button name="list" label="Открыть меню" class="header__burger" data-js="burger"></sl-icon-button>
+  </div>
+</header>
+
+<sl-drawer label="Меню" placement="end" class="drawer" data-js="drawer">
+  <nav class="drawer__nav">
+    <ul class="drawer__list">
+      <li class="drawer__item"><a href="index.html" class="drawer__link">Главная</a></li>
+      <li class="drawer__item"><a href="gatsby.html" class="drawer__link">Gatsby</a></li>
+      <li class="drawer__item"><a href="hugo.html" class="drawer__link">Hugo</a></li>
+      <li class="drawer__item"><a href="jekyll.html" class="drawer__link">Jekyll</a></li>
+      <li class="drawer__item"><a href="comparison.html" class="drawer__link">Сравнение</a></li>
+      <li class="drawer__item"><a href="code.html" class="drawer__link">Код</a></li>
+      <li class="drawer__item"><a href="usage.html" class="drawer__link">Кейсы</a></li>
+      <li class="drawer__item"><a href="video.html" class="drawer__link">Видео</a></li>
+      <li class="drawer__item"><a href="faq.html" class="drawer__link">FAQ</a></li>
+      <li class="drawer__item"><a href="contacts.html" class="drawer__link">Контакты</a></li>
+    </ul>
+  </nav>
+  <div slot="footer" class="drawer__footer"><small>© 2025 Буренкова П. А.</small></div>
+</sl-drawer>
+
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <ol class="breadcrumbs__list">
+    <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+    <li class="breadcrumbs__item"><span class="breadcrumbs__current">Hugo</span></li>
+  </ol>
+</nav>
+
+<div class="layout">
+  <main class="layout__main">
+
+    <section class="section">
+      <h1 class="section__title">Hugo</h1>
+      <p class="section__subtitle">Самый быстрый генератор статических сайтов, написанный на Go.</p>
+      <div class="card card_bordered">
+        <div class="card__body">
+          <p class="card__text">
+            Hugo собирает тысячи страниц за доли секунды. Поставляется одним
+            бинарником без зависимостей — не нужен Node.js, Ruby или Python.
+            Идеален для документации, блогов и корпоративных сайтов.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h2 class="section__title">Ключевые особенности</h2>
+      <ul class="list list_marker_check">
+        <li class="list__item">Скорость сборки — рекордная</li>
+        <li class="list__item">Один бинарник — нет зависимостей</li>
+        <li class="list__item">Go templates + Shortcodes</li>
+        <li class="list__item">Мультиязычность «из коробки»</li>
+        <li class="list__item">Встроенный pipeline для CSS/JS</li>
+        <li class="list__item">Поддержка Taxonomies</li>
+      </ul>
+    </section>
+
+    <section class="section" id="install">
+      <h2 class="section__title">Установка</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">bash</span>
+          <button class="code-block__copy" data-js="copy">Копировать</button>
+        </div>
+        <pre class="code-block__body"><code class="language-bash"># Windows (Chocolatey)
+choco install hugo-extended -y
+
+# macOS (Homebrew)
+brew install hugo
+
+# Linux (Snap)
+sudo snap install hugo
+
+# Создание нового сайта
+hugo new site my-site
+cd my-site
+
+# Добавить тему
+git init
+git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke themes/ananke
+echo "theme = 'ananke'" >> hugo.toml
+
+# Запуск
+hugo server -D
+
+# Продакшен-сборка
+hugo --minify</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="config">
+      <h2 class="section__title">Конфигурация hugo.toml</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">toml</span>
+          <button class="code-block__copy" data-js="copy">Копировать</button>
+        </div>
+        <pre class="code-block__body"><code class="language-toml">baseURL = 'https://example.com/'
+languageCode = 'ru-ru'
+title = 'SSG Review'
+theme = 'ananke'
+
+[params]
+  description = 'Обзор Hugo, Gatsby, Jekyll'
+  author = 'Буренкова П. А.'
+  mainSections = ['posts']
+
+[markup]
+  [markup.highlight]
+    style = 'monokai'
+    lineNos = true
+    noClasses = false
+
+[menu]
+  [[menu.main]]
+    name = 'Главная'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'Посты'
+    url = '/posts/'
+    weight = 2
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="templates">
+      <h2 class="section__title">Шаблоны (Go templates)</h2>
+
+      <h3 class="code-block__subtitle">Шаблон списка — layouts/_default/list.html</h3>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">html</span>
+          <button class="code-block__copy" data-js="copy">Копировать</button>
+        </div>
+        <pre class="code-block__body"><code class="language-html">{{ define "main" }}
+  &lt;h1&gt;{{ .Title }}&lt;/h1&gt;
+  &lt;ul&gt;
+    {{ range .Pages }}
+      &lt;li&gt;
+        &lt;a href="{{ .RelPermalink }}"&gt;{{ .Title }}&lt;/a&gt;
+        &lt;time&gt;{{ .Date.Format "02.01.2006" }}&lt;/time&gt;
+        &lt;p&gt;{{ .Summary }}&lt;/p&gt;
+      &lt;/li&gt;
+    {{ end }}
+  &lt;/ul&gt;
+{{ end }}</code></pre>
+      </div>
+
+      <h3 class="code-block__subtitle">Шаблон поста — layouts/_default/single.html</h3>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">html</span>
+          <button class="code-block__copy" data-js="copy">Копировать</button>
+        </div>
+        <pre class="code-block__body"><code class="language-html">{{ define "main" }}
+  &lt;article&gt;
+    &lt;h1&gt;{{ .Title }}&lt;/h1&gt;
+    &lt;time&gt;{{ .Date.Format "02.01.2006" }}&lt;/time&gt;
+    {{ with .Params.tags }}
+      &lt;ul class="tags"&gt;
+        {{ range . }}
+          &lt;li&gt;&lt;a href="{{ "tags/" | relURL }}{{ . | urlize }}"&gt;{{ . }}&lt;/a&gt;&lt;/li&gt;
+        {{ end }}
+      &lt;/ul&gt;
+    {{ end }}
+    {{ .Content }}
+  &lt;/article&gt;
+{{ end }}</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="shortcode">
+      <h2 class="section__title">Shortcode — видео</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">html</span>
+          <button class="code-block__copy" data-js="copy">Копировать</button>
+        </div>
+        <pre class="code-block__body"><code class="language-html">{{/* layouts/shortcodes/youtube.html */}}
+&lt;div class="video-wrapper"&gt;
+  &lt;iframe
+    src="https://www.youtube.com/embed/{{ .Get 0 }}"
+    title="YouTube video"
+    allowfullscreen
+    loading="lazy"&gt;
+  &lt;/iframe&gt;
+&lt;/div&gt;
+
+{{/* Использование в Markdown: */}}
+{{&lt; youtube dQw4w9WgXcQ &gt;}}</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="frontmatter">
+      <h2 class="section__title">Front Matter поста</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">yaml</span>
+          <button class="code-block__copy" data-js="copy">Копировать</button>
+        </div>
+        <pre class="code-block__body"><code class="language-yaml">---
+title: "Обзор Hugo"
+date: 2025-01-15T10:00:00+03:00
+draft: false
+tags: ["hugo", "ssg", "go"]
+categories: ["Обзоры"]
+author: "Буренкова П. А."
+cover:
+  image: "/img/hugo-cover.webp"
+  alt: "Hugo логотип"
+---
+
+Hugo — самый быстрый SSG...</code></pre>
+      </div>
+    </section>
+
+    <section class="section" id="deploy">
+      <h2 class="section__title">Деплой на GitHub Pages</h2>
+      <div class="code-block">
+        <div class="code-block__header">
+          <span class="code-block__lang">yaml</span>
+          <button class="code-block__copy" data-js="copy">Копировать</button>
+        </div>
+        <pre class="code-block__body"><code class="language-yaml"># .github/workflows/hugo.yml
+name: Deploy Hugo to Pages
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - run: hugo --minify
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4</code></pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Плюсы и минусы</h2>
+      <div class="grid grid_cols_2">
+        <article class="card card_bordered">
+          <div class="card__header">
+            <sl-icon name="hand-thumbs-up" class="card__icon"></sl-icon>
+            <h3 class="card__title">Плюсы</h3>
+          </div>
+          <div class="card__body">
+            <ul class="list list_marker_check">
+              <li class="list__item">Молниеносная скорость</li>
+              <li class="list__item">Простая установка</li>
+              <li class="list__item">Нет зависимостей</li>
+              <li class="list__item">Мультиязычность</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card card_bordered">
+          <div class="card__header">
+            <sl-icon name="hand-thumbs-down" class="card__icon"></sl-icon>
+            <h3 class="card__title">Минусы</h3>
+          </div>
+          <div class="card__body">
+            <ul class="list list_marker_check">
+              <li class="list__item">Go templates — не всем привычны</li>
+              <li class="list__item">Меньше плагинов, чем у Gatsby</li>
+              <li class="list__item">Темы иногда сложные</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <nav class="pagination">
+      <sl-button href="gatsby.html" variant="default">
+        <sl-icon slot="prefix" name="arrow-left"></sl-icon>Назад: Gatsby
+      </sl-button>
+      <sl-button href="jekyll.html" variant="primary">
+        Далее: Jekyll<sl-icon slot="suffix" name="arrow-right"></sl-icon>
+      </sl-button>
+    </nav>
+
+  </main>
+
+  <aside class="layout__aside">
+    <div class="aside__card">
+      <h3 class="aside__title">Содержание</h3>
+      <ul class="aside__list">
+        <li class="aside__item"><a href="#features" class="aside__link">Особенности</a></li>
+        <li class="aside__item"><a href="#install" class="aside__link">Установка</a></li>
+        <li class="aside__item"><a href="#config" class="aside__link">Конфигурация</a></li>
+        <li class="aside__item"><a href="#templates" class="aside__link">Шаблоны</a></li>
+        <li class="aside__item"><a href="#shortcode" class="aside__link">Shortcode</a></li>
+        <li class="aside__item"><a href="#frontmatter" class="aside__link">Front Matter</a></li>
+        <li class="aside__item"><a href="#deploy" class="aside__link">Деплой</a></li>
+      </ul>
+    </div>
+    <div class="aside__card">
+      <h3 class="aside__title">Официальный сайт</h3>
+      <sl-button href="https://gohugo.io/" target="_blank" variant="primary" class="button button_block">
+        gohugo.io
+      </sl-button>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copyright">© 2025 Буренкова Полина Алексеевна. Учебный проект.</p>
+    <ul class="footer__links">
+      <li class="footer__item"><a href="about.html" class="footer__link">О проекте</a></li>
+      <li class="footer__item"><a href="contacts.html" class="footer__link">Контакты</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="js/main.js" type="module"></script>
+</body>
+</html>

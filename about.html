@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О проекте | SSG Review</title>
+  <meta name="description" content="Информация об учебном проекте SSG Review">
+  <link rel="icon" type="image/webp" href="img/gatsby-400.webp">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/light.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace-autoloader.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shoelace-override.css">
+</head>
+<body class="page">
+
+<header class="header" data-js="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">
+      <sl-icon name="layers" class="header__logo-icon"></sl-icon>
+      <span class="header__logo-text">SSG Review</span>
+    </a>
+    <nav class="header__nav" aria-label="Основная навигация">
+      <ul class="header__list">
+        <li class="header__item"><a href="index.html" class="header__link">Главная</a></li>
+        <li class="header__item"><a href="gatsby.html" class="header__link">Gatsby</a></li>
+        <li class="header__item"><a href="hugo.html" class="header__link">Hugo</a></li>
+        <li class="header__item"><a href="jekyll.html" class="header__link">Jekyll</a></li>
+        <li class="header__item"><a href="comparison.html" class="header__link">Сравнение</a></li>
+        <li class="header__item"><a href="code.html" class="header__link">Код</a></li>
+        <li class="header__item"><a href="usage.html" class="header__link">Кейсы</a></li>
+        <li class="header__item"><a href="video.html" class="header__link">Видео</a></li>
+        <li class="header__item"><a href="faq.html" class="header__link">FAQ</a></li>
+        <li class="header__item"><a href="contacts.html" class="header__link">Контакты</a></li>
+      </ul>
+    </nav>
+    <sl-icon-button name="list" label="Открыть меню" class="header__burger" data-js="burger"></sl-icon-button>
+  </div>
+</header>
+
+<sl-drawer label="Меню" placement="end" class="drawer" data-js="drawer">
+  <nav class="drawer__nav">
+    <ul class="drawer__list">
+      <li class="drawer__item"><a href="index.html" class="drawer__link">Главная</a></li>
+      <li class="drawer__item"><a href="gatsby.html" class="drawer__link">Gatsby</a></li>
+      <li class="drawer__item"><a href="hugo.html" class="drawer__link">Hugo</a></li>
+      <li class="drawer__item"><a href="jekyll.html" class="drawer__link">Jekyll</a></li>
+      <li class="drawer__item"><a href="comparison.html" class="drawer__link">Сравнение</a></li>
+      <li class="drawer__item"><a href="code.html" class="drawer__link">Код</a></li>
+      <li class="drawer__item"><a href="usage.html" class="drawer__link">Кейсы</a></li>
+      <li class="drawer__item"><a href="video.html" class="drawer__link">Видео</a></li>
+      <li class="drawer__item"><a href="faq.html" class="drawer__link">FAQ</a></li>
+      <li class="drawer__item"><a href="contacts.html" class="drawer__link">Контакты</a></li>
+    </ul>
+  </nav>
+  <div slot="footer" class="drawer__footer"><small>© 2025 Буренкова П. А.</small></div>
+</sl-drawer>
+
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <sl-breadcrumb>
+    <sl-breadcrumb-item href="index.html">
+      <sl-icon slot="prefix" name="house"></sl-icon>
+      Главная
+    </sl-breadcrumb-item>
+    <sl-breadcrumb-item>О проекте</sl-breadcrumb-item>
+  </sl-breadcrumb>
+</nav>
+
+<div class="layout">
+  <main class="layout__main">
+
+    <section class="section">
+      <h1 class="section__title">О проекте</h1>
+      <p class="section__subtitle">Учебный проект по фронтенд-разработке.</p>
+
+      <sl-card class="card">
+        <p>
+          Сайт создан в рамках учебного проекта. Тема — «Фреймворки для
+          статических сайтов (Gatsby, Hugo, Jekyll)». Использован
+          UI-фреймворк <strong>Shoelace</strong>, методология
+          <strong>БЭМ</strong>, адаптивная вёрстка mobile-first.
+        </p>
+      </sl-card>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Технологии</h2>
+      <ul class="list list_marker_check">
+        <li class="list__item">HTML5 (семантическая валидная разметка)</li>
+        <li class="list__item">CSS3 (Grid, Flexbox, Custom Properties)</li>
+        <li class="list__item">Shoelace (Web Components)</li>
+        <li class="list__item">JavaScript ES6+</li>
+        <li class="list__item">БЭМ-методология</li>
+        <li class="list__item">Prism.js (подсветка кода)</li>
+      </ul>
+
+      <div class="tags">
+        <sl-tag variant="primary">Shoelace</sl-tag>
+        <sl-tag variant="success">БЭМ</sl-tag>
+        <sl-tag variant="warning">Mobile-first</sl-tag>
+        <sl-tag variant="neutral">HTML5</sl-tag>
+        <sl-tag variant="neutral">CSS3</sl-tag>
+        <sl-tag variant="neutral">JavaScript</sl-tag>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Структура сайта</h2>
+      <table class="table table_striped">
+        <caption class="table__caption">Все страницы проекта</caption>
+        <thead class="table__head">
+          <tr class="table__row">
+            <th scope="col" class="table__cell table__cell_head">№</th>
+            <th scope="col" class="table__cell table__cell_head">Страница</th>
+            <th scope="col" class="table__cell table__cell_head">Описание</th>
+          </tr>
+        </thead>
+        <tbody class="table__body">
+          <tr class="table__row"><td class="table__cell">1</td><td class="table__cell">index.html</td><td class="table__cell">Главная</td></tr>
+          <tr class="table__row"><td class="table__cell">2</td><td class="table__cell">gatsby.html</td><td class="table__cell">Обзор Gatsby</td></tr>
+          <tr class="table__row"><td class="table__cell">3</td><td class="table__cell">hugo.html</td><td class="table__cell">Обзор Hugo</td></tr>
+          <tr class="table__row"><td class="table__cell">4</td><td class="table__cell">jekyll.html</td><td class="table__cell">Обзор Jekyll</td></tr>
+          <tr class="table__row"><td class="table__cell">5</td><td class="table__cell">comparison.html</td><td class="table__cell">Сравнение</td></tr>
+          <tr class="table__row"><td class="table__cell">6</td><td class="table__cell">code.html</td><td class="table__cell">Примеры кода</td></tr>
+          <tr class="table__row"><td class="table__cell">7</td><td class="table__cell">usage.html</td><td class="table__cell">Кейсы</td></tr>
+          <tr class="table__row"><td class="table__cell">8</td><td class="table__cell">video.html</td><td class="table__cell">Видео</td></tr>
+          <tr class="table__row"><td class="table__cell">9</td><td class="table__cell">faq.html</td><td class="table__cell">FAQ</td></tr>
+          <tr class="table__row"><td class="table__cell">10</td><td class="table__cell">contacts.html</td><td class="table__cell">Контакты</td></tr>
+          <tr class="table__row"><td class="table__cell">11</td><td class="table__cell">about.html</td><td class="table__cell">О проекте</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2 class="section__title">Автор</h2>
+      <sl-card class="card">
+        <div class="author author_lg">
+          <sl-avatar label="Буренкова Полина" initials="БП"></sl-avatar>
+          <div class="author__info">
+            <strong>Буренкова Полина Алексеевна</strong>
+            <span>Студент, группа [номер]</span>
+          </div>
+        </div>
+      </sl-card>
+    </section>
+
+    <nav class="pagination">
+      <a href="contacts.html" class="button-link">
+        <sl-button variant="default">
+          <sl-icon slot="prefix" name="arrow-left"></sl-icon>Назад
+        </sl-button>
+      </a>
+      <a href="index.html" class="button-link">
+        <sl-button variant="primary">
+          На главную<sl-icon slot="suffix" name="house"></sl-icon>
+        </sl-button>
+      </a>
+    </nav>
+
+  </main>
+
+  <aside class="layout__aside">
+    <sl-card class="aside__card">
+      <h3 slot="header" class="aside__title">О репозитории</h3>
+      <ul class="aside__list">
+        <li class="aside__item">
+          <a href="https://github.com/polina222232/ssg-review" class="aside__link" target="_blank" rel="noopener">
+            github.com/polina222232/ssg-review
+          </a>
+        </li>
+      </ul>
+    </sl-card>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copyright">© 2025 Буренкова Полина Алексеевна. Учебный проект.</p>
+    <ul class="footer__links">
+      <li class="footer__item"><a href="about.html" class="footer__link">О проекте</a></li>
+      <li class="footer__item"><a href="contacts.html" class="footer__link">Контакты</a></li>
+      <li class="footer__item"><a href="https://github.com/polina222232/ssg-review" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="js/main.js" type="module"></script>
+</body>
+</html>

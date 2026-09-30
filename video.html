@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Видео-обзоры SSG | SSG Review</title>
+  <meta name="description" content="Обучающие видео по Gatsby, Hugo и Jekyll">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/themes/light.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/shoelace-autoloader.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/shoelace-override.css">
+</head>
+<body class="page">
+
+<header class="header" data-js="header">
+  <div class="header__inner">
+    <a href="index.html" class="header__logo">
+      <sl-icon name="layers" class="header__logo-icon"></sl-icon>
+      <span class="header__logo-text">SSG Review</span>
+    </a>
+    <nav class="header__nav" aria-label="Основная навигация">
+      <ul class="header__list">
+        <li class="header__item"><a href="index.html" class="header__link">Главная</a></li>
+        <li class="header__item"><a href="gatsby.html" class="header__link">Gatsby</a></li>
+        <li class="header__item"><a href="hugo.html" class="header__link">Hugo</a></li>
+        <li class="header__item"><a href="jekyll.html" class="header__link">Jekyll</a></li>
+        <li class="header__item"><a href="comparison.html" class="header__link">Сравнение</a></li>
+        <li class="header__item"><a href="code.html" class="header__link">Код</a></li>
+        <li class="header__item"><a href="usage.html" class="header__link">Кейсы</a></li>
+        <li class="header__item"><a href="video.html" class="header__link">Видео</a></li>
+        <li class="header__item"><a href="faq.html" class="header__link">FAQ</a></li>
+        <li class="header__item"><a href="contacts.html" class="header__link">Контакты</a></li>
+      </ul>
+    </nav>
+    <sl-icon-button name="list" label="Открыть меню" class="header__burger" data-js="burger"></sl-icon-button>
+  </div>
+</header>
+
+<sl-drawer label="Меню" placement="end" class="drawer" data-js="drawer">
+  <nav class="drawer__nav">
+    <ul class="drawer__list">
+      <li class="drawer__item"><a href="index.html" class="drawer__link">Главная</a></li>
+      <li class="drawer__item"><a href="gatsby.html" class="drawer__link">Gatsby</a></li>
+      <li class="drawer__item"><a href="hugo.html" class="drawer__link">Hugo</a></li>
+      <li class="drawer__item"><a href="jekyll.html" class="drawer__link">Jekyll</a></li>
+      <li class="drawer__item"><a href="comparison.html" class="drawer__link">Сравнение</a></li>
+      <li class="drawer__item"><a href="code.html" class="drawer__link">Код</a></li>
+      <li class="drawer__item"><a href="usage.html" class="drawer__link">Кейсы</a></li>
+      <li class="drawer__item"><a href="video.html" class="drawer__link">Видео</a></li>
+      <li class="drawer__item"><a href="faq.html" class="drawer__link">FAQ</a></li>
+      <li class="drawer__item"><a href="contacts.html" class="drawer__link">Контакты</a></li>
+    </ul>
+  </nav>
+  <div slot="footer" class="drawer__footer"><small>© 2025 Буренкова П. А.</small></div>
+</sl-drawer>
+
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <sl-breadcrumb>
+    <sl-breadcrumb-item href="index.html">
+      <sl-icon slot="prefix" name="house"></sl-icon>
+      Главная
+    </sl-breadcrumb-item>
+    <sl-breadcrumb-item>Видео</sl-breadcrumb-item>
+  </sl-breadcrumb>
+</nav>
+
+<div class="layout">
+  <main class="layout__main">
+
+    <section class="section">
+      <h1 class="section__title">Видео-обзоры</h1>
+      <p class="section__subtitle">Обучающие видео по Gatsby, Hugo и Jekyll.</p>
+
+      <div class="video">
+        <div class="video__wrapper">
+          <iframe
+            class="video__iframe"
+            src="https://yandex.ru/video/preview/9885240716899211393?utm_source=copy_link&utm_medium=social&utm_campaign=share"
+            title="Обзор Hugo за 10 минут"
+            allow="clipboard-write; autoplay"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <p class="video__caption">Обзор Hugo за 10 минут</p>
+      </div>
+
+      <div class="video">
+        <div class="video__wrapper">
+          <iframe
+            class="video__iframe"
+            src="https://vk.com/video_ext.php?oid=-12345678&id=456239017&hd=2"
+            title="Gatsby с нуля до продакшена"
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <p class="video__caption">Gatsby с нуля до продакшена</p>
+      </div>
+
+      <div class="video">
+        <div class="video__wrapper">
+          <iframe
+            class="video__iframe"
+            src="https://yandex.ru/video/preview/8566122657197130891?utm_source=copy_link&utm_medium=social&utm_campaign=share"
+            title="Jekyll и GitHub Pages"
+            allow="clipboard-write; autoplay"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <p class="video__caption">Jekyll и GitHub Pages</p>
+      </div>
+
+      <sl-alert variant="neutral" open class="alert alert_info">
+        <sl-icon slot="icon" name="info-circle"></sl-icon>
+        Замените ID видео в атрибутах <code>src</code> на реальные ссылки из RuTube или VK Video.
+      </sl-alert>
+    </section>
+
+    <nav class="pagination">
+      <a href="usage.html" class="button-link">
+        <sl-button variant="default">
+          <sl-icon slot="prefix" name="arrow-left"></sl-icon>Назад: Кейсы
+        </sl-button>
+      </a>
+      <a href="faq.html" class="button-link">
+        <sl-button variant="primary">
+          Далее: FAQ<sl-icon slot="suffix" name="arrow-right"></sl-icon>
+        </sl-button>
+      </a>
+    </nav>
+
+  </main>
+
+  <aside class="layout__aside">
+    <sl-card class="aside__card">
+      <h3 slot="header" class="aside__title">Плейлисты</h3>
+      <ul class="aside__list">
+        <li class="aside__item"><a href="#" class="aside__link">Hugo для начинающих</a></li>
+        <li class="aside__item"><a href="#" class="aside__link">Gatsby + CMS</a></li>
+        <li class="aside__item"><a href="#" class="aside__link">Jekyll и GitHub Pages</a></li>
+      </ul>
+    </sl-card>
+
+    <sl-card class="aside__card">
+      <h3 slot="header" class="aside__title">Каналы</h3>
+      <ul class="aside__list">
+        <li class="aside__item">
+          <a href="https://t.me/Polina_Burenkova" class="aside__link" target="_blank" rel="noopener">
+            Telegram: @Polina_Burenkova
+          </a>
+        </li>
+        <li class="aside__item">
+          <a href="mailto:polinaburenkova01@gmail.com" class="aside__link">
+            polinaburenkova01@gmail.com
+          </a>
+        </li>
+      </ul>
+    </sl-card>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copyright">© 2025 Буренкова Полина Алексеевна. Учебный проект.</p>
+    <ul class="footer__links">
+      <li class="footer__item"><a href="about.html" class="footer__link">О проекте</a></li>
+      <li class="footer__item"><a href="contacts.html" class="footer__link">Контакты</a></li>
+      <li class="footer__item">
+        <a href="https://github.com/polina222232/ssg-review" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+      </li>
+    </ul>
+    <div class="footer__social">
+      <sl-tooltip content="GitHub репозиторий">
+        <a href="https://github.com/polina222232/ssg-review" target="_blank" rel="noopener" class="icon-link">
+          <sl-icon-button name="github" label="GitHub"></sl-icon-button>
+        </a>
+      </sl-tooltip>
+      <sl-tooltip content="Telegram @Polina_Burenkova">
+        <a href="https://t.me/Polina_Burenkova" target="_blank" rel="noopener" class="icon-link">
+          <sl-icon-button name="telegram" label="Telegram"></sl-icon-button>
+        </a>
+      </sl-tooltip>
+      <sl-tooltip content="Email">
+        <a href="mailto:polinaburenkova01@gmail.com" class="icon-link">
+          <sl-icon-button name="envelope" label="Email"></sl-icon-button>
+        </a>
+      </sl-tooltip>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" type="module"></script>
+</body>
+</html>
